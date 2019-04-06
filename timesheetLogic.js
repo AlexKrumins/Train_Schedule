@@ -25,28 +25,29 @@ $("#add-train-btn").on("click", function(event) {
   event.preventDefault();
 
   // Grabs user input
-  var empName = $("#train-name-input").val().trim();
-  var empdestination = $("#destination-input").val().trim();
-  var empStart = moment($("#start-input").val().trim(), "MM/DD/YYYY");
-  console.log('train start date', empStart);
-  var empfrequency = $("#frequency-input").val().trim();
+  var chchName = $("#train-name-input").val().trim();
+  var chchDestination = $("#destination-input").val().trim();
+  var chchStart = ($("#start-input").val().trim(), 'HH:mm');
+  console.log('train start time', chchStart);
+  var chchFrequency = $("#frequency-input").val().trim();
+  console.log(chchStart);
 
   // Creates local "temporary" object for holding Train data
-  var newEmp = {
-    name: empName,
-    destination: empdestination,
-    start: empStart,
-    frequency: empfrequency
+  var newChch = {
+    name: chchName,
+    destination: chchDestination,
+    start: chchStart,
+    frequency: chchFrequency
   };
 
   // Uploads Train data to the database
-  database.ref().push(newEmp);
+  database.ref().push(newChch);
 
   // Logs everything to console
-  console.log(newEmp.name);
-  console.log(newEmp.destination);
-  console.log(newEmp.start);
-  console.log(newEmp.frequency);
+  console.log(newChch.name);
+  console.log(newChch.destination);
+  console.log(newChch.start);
+  console.log(newChch.frequency);
 
   alert("Train successfully added");
 
@@ -62,37 +63,37 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
   // Store everything into a variable.
-  var empName = childSnapshot.val().name;
-  var empdestination = childSnapshot.val().destination;
-  var empStart = childSnapshot.val().start;
-  var empfrequency = childSnapshot.val().frequency;
+  var chchName = childSnapshot.val().name;
+  var chchDestination = childSnapshot.val().destination;
+  var chchStart = childSnapshot.val().start;
+  var chchFrequency = childSnapshot.val().frequency;
 
   // Train Info
-  console.log(empName);
-  console.log(empdestination);
-  console.log(empStart);
-  console.log(empfrequency);
+  console.log(chchName);
+  console.log(chchDestination);
+  console.log(chchStart);
+  console.log(chchFrequency);
 
   // Prettify the Train start
-  var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
+  var chchStartPretty = moment.unix(chchStart).format("MM/DD/YYYY");
 
   // Calculate the months worked using hardcore math
   // To calculate the months worked
-  var empMonths = moment().diff(moment(empStart, "X"), "months");
-  console.log(empMonths);
+  var chchMonths = moment().diff(moment(chchStart, "X"), "months");
+  console.log(chchMonths);
 
   // Calculate the total billed frequency
-  var empBilled = empMonths * empfrequency;
-  console.log(empBilled);
+  var chchBilled = chchMonths * chchFrequency;
+  console.log(chchBilled);
 
   // Create the new row
   var newRow = $("<tr>").append(
-    $("<td>").text(empName),
-    $("<td>").text(empdestination),
-    $("<td>").text(empStartPretty),
-    $("<td>").text(empMonths),
-    $("<td>").text(empfrequency),
-    $("<td>").text(empBilled)
+    $("<td>").text(chchName),
+    $("<td>").text(chchDestination),
+    $("<td>").text(chchFrequency),
+    $("<td>").text(chchStartPretty),
+    $("<td>").text(chchMonths),
+    $("<td>").text(chchBilled)
   );
 
   // Append the new row to the table
