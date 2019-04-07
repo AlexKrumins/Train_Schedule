@@ -41,7 +41,6 @@ $("#add-train-btn").on("click", function(event) {
 
   alert("It looks like everything is on track");
 
-  // Clears all of the text-boxes
   $("#train-name-input").val("");
   $("#destination-input").val("");
   $("#start-input").val("");
@@ -49,18 +48,27 @@ $("#add-train-btn").on("click", function(event) {
 });
 
 database.ref().on("child_added", function(childSnapshot) {
-  console.log(childSnapshot.val());
-
   var chchName = childSnapshot.val().name;
   var chchDestination = childSnapshot.val().destination;
   var chchStart = childSnapshot.val().start;
+  console.log(moment(chchStart));
+  // var chchStartUNIX = moment.unix(chchStart).format('LT')
   var chchFrequency = childSnapshot.val().frequency;
-  var now = moment();
-
+  var timePassed = moment().diff(moment(chchStart, 'm'), "minutes");
+  console.log("timePassed = " + timePassed);
+  var tRemainder = timePassed % chchFrequency;
+  var timeLeft = chchFrequency - tRemainder;
+  var nextArrival = moment().add(timeLeft, 'm');
+  console.log("Next arrival =" + timeLeft + " minutes");
+  if (moment(nextArrival).isBefore(chchStart)){
+    console.log("hot lead");
+  }
   var newRow = $("<tr>").append(
     $("<td>").text(chchName),
     $("<td>").text(chchDestination),
     $("<td>").text(chchFrequency),
+    $("<td>").text(moment(nextArrival).format("hh:mm A")),
+    $("<td>").text(timeLeft + " minutes"),
   );
 
   $("#train-table > tbody").append(newRow);
