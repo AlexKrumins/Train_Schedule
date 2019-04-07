@@ -21,6 +21,10 @@ for (i=00;i<=59;i++){
   $("#start-input-minute").append($('<option></option>').val(i).html(i))
   };
 }
+function   playAudio(){
+  var audio = new Audio('Train_Honk_Horn_2x-Mike_Koenig-157974048.mp3');
+  audio.play();
+}
 
 $("#add-train-btn").on("click", function(event) {
   event.preventDefault();
@@ -39,15 +43,15 @@ $("#add-train-btn").on("click", function(event) {
   }else if(isNaN(chchFrequency)) {
     alert("Please enter a number for the train's frequency, ya dingus.");
   }else{
-  var newChch = {
-    name: chchName,
-    destination: chchDestination,
-    start: chchStart,
-    frequency: chchFrequency
+    playAudio()
+    var newChch = {
+      name: chchName,
+      destination: chchDestination,
+      start: chchStart,
+      frequency: chchFrequency
   };
 
   database.ref().push(newChch);
-
   alert("It looks like everything is on track");
 
   $("#train-name-input").val("");
