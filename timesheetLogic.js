@@ -27,7 +27,7 @@ $("#add-train-btn").on("click", function(event) {
 
   var chchName = $("#train-name-input").val().trim();
   var chchDestination = $("#destination-input").val().trim();
-  var chchStart = moment($("#start-input-hour").val() + ":" + $("#start-input-minute").val() + $("#start-input-ampm").val(), "hmm", false);
+  var chchStart = ($("#start-input-hour").val() + ":" + $("#start-input-minute").val() + $("#start-input-ampm").val());
   console.log('train start time', chchStart);
   var chchFrequency = $("#frequency-input").val().trim();
   var newChch = {
