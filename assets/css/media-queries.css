@@ -1,21 +1,15 @@
  /*Media Queries*/
   /* Large devices (Monitors, 980px and down) */
+@media only screen and (min-width: 981px) {
+    .container-fluid {
+        width: 80% !important;
+        margin: auto;
+    }
+}
 @media only screen and (max-width: 980px) {
-    #menu-bar{
-        width:98%;
-        float:left;
-    }
-    #name-banner{
-        margin-left:7px;
-    }
-    header ul{
-        float:right;
-        margin-right:0px;
-    }
-    .container {
-        width: 98%;
-        float: left;
-        margin-left:7px;
+    .container-fluid {
+        width: 96%;
+        margin: auto;
     }
 }
 
