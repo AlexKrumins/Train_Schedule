@@ -2,6 +2,15 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-image:url(./dfb837d42f3ec15e51e7b3c957e43a31_vectorized.png);
+  font-family: 'Contrail One', cursive;
+}
+h1{
+  color: skyblue;
+  font-size: 40px;
+}
+h3{
+  font-size:20px;
+  margin-top: 10px;
 }
 #train-table th,
 td {

@@ -28,19 +28,23 @@ function   playAudio(){
 
 $("#add-train-btn").on("click", function(event) {
   event.preventDefault();
-
+  $("#train-name-input, #destination-input, #frequency-input").removeClass("is-valid is-invalid")
   var chchName = $("#train-name-input").val().trim();
   var chchDestination = $("#destination-input").val().trim();
   var chchStart = ($("#start-input-hour").val() + ":" + $("#start-input-minute").val() + $("#start-input-ampm").val());
   console.log('train start time', chchStart);
   var chchFrequency = $("#frequency-input").val().trim();
   if (chchName === "") {
+    $("#train-name-input").addClass("is-invalid")
     alert("Please Name the train you're adding to the schedule.");
   }else if(chchDestination === "") {
+    $("#destination-input").addClass("is-invalid")
     alert("Please add a destination for the train you're adding to the schedule.");
   }else if(chchFrequency === "") {
+    $("#frequency-input").addClass("is-invalid")
     alert("Please enter the train's frequency (in minutes).")
   }else if(isNaN(chchFrequency)) {
+    $("#frequency-input").addClass("is-invalid")
     alert("Please enter only a number for the train's frequency, ya dingus.");
   }else{
     playAudio()
