@@ -1,0 +1,99 @@
+ /*Media Queries*/
+  /* Large devices (Monitors, 980px and down) */
+@media only screen and (max-width: 980px) {
+    #menu-bar{
+        width:98%;
+        float:left;
+    }
+    #name-banner{
+        margin-left:7px;
+    }
+    header ul{
+        float:right;
+        margin-right:0px;
+    }
+    .container {
+        width: 98%;
+        float: left;
+        margin-left:7px;
+    }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+        #menu-bar{
+            width:96%;
+            float:left;
+        }
+        #name-banner{
+            margin-left:7px;
+        }
+        header ul{
+            float:right;
+            margin-right:0px;
+        }
+        .container {
+            width: 96%;
+            float: left;
+            margin-left:7px;
+        }
+    }
+    
+    /* Extra small devices (phones, 640px and down) */
+    @media only screen and (max-width: 640px) {
+            #menu-bar{
+                width:98%;
+                float:none;
+            }
+            #name-banner{
+                width:100%;
+                text-align:center;
+                font-size: 30px;
+                margin:0px;
+                padding-left:0;
+                padding:10px;
+                float:none;
+            }
+            .article-header{
+                text-align:center;
+                font-size:30px;
+            }
+            #bio-image{
+                width:100%;
+                max-width:300px;
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+                float:none;
+            }
+
+            header ul{
+                width:100%;
+                text-align:center;
+                margin-top:10px;
+                margin-bottom:10px;
+            }
+            .container {
+                width: 96%;
+                float: left;
+                margin-top:7px;
+                margin-left:7px;
+            }
+
+            .row{
+                clear:both;
+                display:block;
+                width:100%;
+            }
+            .column{
+                width:100%;
+            }
+            .column img{
+                width:88%;
+               min-width: 300px;
+            }
+            .text-block{
+                width:88%;
+                min-width:300px;
+            }
+  }

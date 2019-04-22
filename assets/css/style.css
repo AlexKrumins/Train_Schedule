@@ -1,0 +1,13 @@
+body{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image:url(./dfb837d42f3ec15e51e7b3c957e43a31_vectorized.png);
+}
+#train-table th,
+td {
+  display: inline-block;
+  width: 20%;
+}
+#start-input-ampm {
+  width: 80px;
+}
